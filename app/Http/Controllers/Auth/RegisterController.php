@@ -16,7 +16,7 @@ class RegisterController extends BaseController
     public function __invoke(Request $request): JsonResponse|array
     {
         $input = $request->all();
-
+        // Validating the data coming from the user:
         $validator = Validator::make($input , [
             'first_name' => 'required' ,
             'last_name'  => 'required' ,
@@ -24,18 +24,19 @@ class RegisterController extends BaseController
             'password'   => 'required'
         ]);
         //
-
+        // if it failed, I'll send error:
         if($validator->fails())
         {
             return $this->sendError($validator->errors());
         }
 
+        // else, I'll hash the password and create access token:
+
         $input['password'] = Hash::make($input['password']);
 
-
         $user = User::create($input);
-
         $user['accessToken'] = $user->createToken('Personal Access Token')->accessToken ;
+
         return $this->sendResponse($user);
     }
 }
