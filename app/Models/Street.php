@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Street extends Model
 {
     use HasFactory;
+    protected $guarded = [] ;
 
     public function properties(): HasMany
     {

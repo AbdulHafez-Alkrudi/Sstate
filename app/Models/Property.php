@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Property extends Model
 {
     use HasFactory;
+    protected $guarded = [] ;
 
     public function user(): BelongsTo
     {

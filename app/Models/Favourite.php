@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Favourite extends Model
 {
     use HasFactory;
-
+    protected $guarded = [] ;
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
