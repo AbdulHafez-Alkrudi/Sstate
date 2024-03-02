@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Image_Property extends Model
 {
     use HasFactory;
+    protected $guarded = [] ;
 
     public function property(): BelongsTo
     {
