@@ -24,7 +24,7 @@ return new class extends Migration
             $table->smallInteger('number_of_bathrooms');
             $table->float('space');
             $table->boolean('rent');
-            $table->integer('popular')->nullable();
+            $table->integer('popularity')->default(0);
             $table->timestamps();
 
         });

@@ -10,7 +10,10 @@ class Street extends Model
 {
     use HasFactory;
     protected $guarded = [] ;
-
+    protected $casts = [
+        'created_at' => 'datetime:Y-m-d',
+        'updated_at' => 'datetime:Y-m-d'
+    ];
     public function properties(): HasMany
     {
         return $this->hasMany(Property::class);
