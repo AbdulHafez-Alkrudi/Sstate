@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 use Illuminate\Notifications\Notifiable;
@@ -22,6 +23,7 @@ class User extends Authenticatable
     protected $fillable = [
         'first_name',
         'last_name',
+        'phone_number',
         'email',
         'password',
     ];
@@ -35,7 +37,6 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
-
     /**
      * The attributes that should be cast.
      *
@@ -44,6 +45,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+        'created_at' => 'datetime:Y-m-d',
+        'updated_at' => 'datetime:Y-m-d'
     ];
+
+    // Adding the relations:
+
+    public function favourites(): HasMany
+    {
+        return $this->hasMany(Favourite::class , );
+    }
+    public function properties() : HasMany
+    {
+        return $this->hasMany(Property::class);
+    }
 
 }

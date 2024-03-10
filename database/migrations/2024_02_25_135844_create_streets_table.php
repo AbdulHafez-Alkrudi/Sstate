@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('streets', function (Blueprint $table) {
             $table->id();
+            $table->string('name_AR');
+            $table->string('name_EN');
             $table->double('latitude');
             $table->double('longitude');
             $table->timestamps();
