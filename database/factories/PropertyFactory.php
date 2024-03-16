@@ -30,7 +30,7 @@ class PropertyFactory extends Factory
             'number_of_kitchens'=>$this->faker->numberBetween(1 , 100),
             'number_of_bathrooms'=>$this->faker->numberBetween(1 , 100),
             'space'=>$this->faker->numberBetween(10 , 10000),
-            'rent'=>$this->faker->boolean
+            'for_rent'=>$this->faker->boolean
         ];
     }
 }
