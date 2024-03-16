@@ -23,7 +23,7 @@ return new class extends Migration
             $table->smallInteger('number_of_kitchens');
             $table->smallInteger('number_of_bathrooms');
             $table->float('space');
-            $table->boolean('rent');
+            $table->boolean('for_rent');
             $table->integer('popularity')->default(0);
             $table->timestamps();
 
